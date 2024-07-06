@@ -18,7 +18,7 @@ module.exports = {
     node: true,
     browser: true,
   },
-  plugins: ["only-warn"],
+  plugins: ["only-warn", "simple-import-sort"],
   settings: {
     "import/resolver": {
       typescript: {
@@ -26,10 +26,46 @@ module.exports = {
       },
     },
   },
-  ignorePatterns: [
-    // Ignore dotfiles
-    ".*.js",
-    "node_modules/",
-  ],
+  rules: {
+    "no-unused-vars": "off",
+    "no-console": "warn",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "react/no-unescaped-entities": "off",
+    "react/display-name": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "simple-import-sort/exports": "warn",
+    "simple-import-sort/imports": [
+      "warn",
+      {
+        groups: [
+          // ext library & side effect imports
+          ["^@?\\w", "^\\u0000"],
+          // {s}css files
+          ["^.+\\.s?css$"],
+          // components
+          ["^@components", "^@container"],
+          // zustand store
+          ["^@store"],
+          // Other imports
+          ["^@"],
+          // relative paths up until 3 level
+          [
+            "^\\./?$",
+            "^\\.(?!/?$)",
+            "^\\.\\./?$",
+            "^\\.\\.(?!/?$)",
+            "^\\.\\./\\.\\./?$",
+            "^\\.\\./\\.\\.(?!/?$)",
+            "^\\.\\./\\.\\./\\.\\./?$",
+            "^\\.\\./\\.\\./\\.\\.(?!/?$)",
+          ],
+          ["^@/types"],
+          // other that didnt fit in
+          ["^"],
+        ],
+      },
+    ],
+  },
+  ignorePatterns: [".*.js", "node_modules/"],
   overrides: [{ files: ["*.js?(x)", "*.ts?(x)"] }],
 };
