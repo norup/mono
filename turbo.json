@@ -2,16 +2,94 @@
   "$schema": "https://turbo.build/schema.json",
   "tasks": {
     "build": {
+      "env": [
+        "NODE_ENV",
+        "APP_NAME",
+        "PWD",
+        "FRONTEND_DOMAIN",
+        "BACKEND_DOMAIN",
+        "APP_PORT",
+        "PORT",
+        "API_PREFIX",
+        "APP_FALLBACK_LANGUAGE",
+        "APP_HEADER_LANGUAGE",
+        "DATABASE_MAX_CONNECTIONS",
+        "DATABASE_SSL_ENABLED",
+        "DATABASE_REJECT_UNAUTHORIZED",
+        "DATABASE_CA",
+        "DATABASE_KEY",
+        "DATABASE_CERT",
+        "DATABASE_TYPE",
+        "DATABASE_URL",
+        "DATABASE_HOST",
+        "DATABASE_PORT",
+        "DATABASE_USERNAME",
+        "DATABASE_PASSWORD",
+        "DATABASE_NAME",
+        "DATABASE_SYNCHRONIZE"
+      ],
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
       "outputs": [".next/**", "!.next/cache/**"]
     },
     "lint": {
-      "dependsOn": ["^lint"]
+      "dependsOn": ["^lint"],
+      "env": [
+        "NODE_ENV",
+        "APP_NAME",
+        "PWD",
+        "FRONTEND_DOMAIN",
+        "BACKEND_DOMAIN",
+        "APP_PORT",
+        "PORT",
+        "API_PREFIX",
+        "APP_FALLBACK_LANGUAGE",
+        "APP_HEADER_LANGUAGE",
+        "DATABASE_MAX_CONNECTIONS",
+        "DATABASE_SSL_ENABLED",
+        "DATABASE_REJECT_UNAUTHORIZED",
+        "DATABASE_CA",
+        "DATABASE_KEY",
+        "DATABASE_CERT",
+        "DATABASE_TYPE",
+        "DATABASE_URL",
+        "DATABASE_HOST",
+        "DATABASE_PORT",
+        "DATABASE_USERNAME",
+        "DATABASE_PASSWORD",
+        "DATABASE_NAME",
+        "DATABASE_SYNCHRONIZE"
+      ]
     },
     "dev": {
       "cache": false,
-      "persistent": true
+      "persistent": true,
+      "env": [
+        "NODE_ENV",
+        "APP_NAME",
+        "PWD",
+        "FRONTEND_DOMAIN",
+        "BACKEND_DOMAIN",
+        "APP_PORT",
+        "PORT",
+        "API_PREFIX",
+        "APP_FALLBACK_LANGUAGE",
+        "APP_HEADER_LANGUAGE",
+        "DATABASE_MAX_CONNECTIONS",
+        "DATABASE_SSL_ENABLED",
+        "DATABASE_REJECT_UNAUTHORIZED",
+        "DATABASE_CA",
+        "DATABASE_KEY",
+        "DATABASE_CERT",
+        "DATABASE_TYPE",
+        "DATABASE_URL",
+        "DATABASE_HOST",
+        "DATABASE_PORT",
+        "DATABASE_USERNAME",
+        "DATABASE_PASSWORD",
+        "DATABASE_NAME",
+        "DATABASE_SYNCHRONIZE"
+      ]
     }
   }
 }
